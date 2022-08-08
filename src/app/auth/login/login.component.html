@@ -1,0 +1,38 @@
+<div class="content">
+
+
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+        <div class="container pt-3">
+            <h1 class="mt-5">Login</h1>
+            <p> <a href="JavaScript:void(0)" [routerLink]="['/registro']">Nuevo Alumno</a> </p>
+            <!-- Login form -->
+            <div class="col-md-6 p-2">
+
+
+                <form [formGroup]="loginForm" (ngSubmit)="loginusr()">
+                    <div class="form-group pt-2">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" class="form-control" id="emaillogin" formControlName="emaillogin" required
+                            [class.is-invalid]="loginForm.get('emaillogin')?.invalid && loginForm.get('emaillogin')?.touched"
+                            [class.is-valid]="loginForm.get('emaillogin')?.valid && loginForm.get('emaillogin')?.touched">
+                    </div>
+                    <div>
+                        <span class="text-danger" *ngIf="isSubmitLogin && loginForm.get('emaillogin')?.invalid">No es un
+                            email
+                            valido.</span>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btnG">Entrar</button>
+                </form>
+
+            </div>
+            <!-- / termina Login form -->
+
+        </div>
+    </main>
+
+
+
+</div>
